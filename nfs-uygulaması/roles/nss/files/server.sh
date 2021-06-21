@@ -1,0 +1,1 @@
+[ -e /etc/exports ] && echo '/opt/nfsdata 192.168.1.101*(rw,sync,no_root_squash)' > /etc/exports && exportfs -r

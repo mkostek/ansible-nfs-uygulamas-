@@ -1,0 +1,13 @@
+---
+- name: nfs install
+  apt: 
+    name: nfs-common
+    state: latest
+  apt:
+    name: rpcbind
+    state: latest
+  apt:
+    name: python3.8
+    state: latest
+- name: ubuntu system start
+  shell: systemctl start nfs-server rpcbind;systemctl enable nfs-server rpcbind

@@ -1,0 +1,1 @@
+mount -t nfs 192.168.1.77:/opt/nfsdata /nfsdata

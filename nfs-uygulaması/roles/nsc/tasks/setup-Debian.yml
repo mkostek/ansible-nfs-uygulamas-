@@ -1,0 +1,19 @@
+- name: nfs install
+  apt: 
+    name: nfs-common
+    state: latest   
+    
+- name: ubuntu system start
+  shell: systemctl start nfs-server;systemctl enable nfs-server
+  
+- name: Transfer the script
+  copy: src=client.sh dest=/home/nadmin mode=0777 
+- name: Execute the script
+  command: sh /home/nadmin/client.sh   
+  
+- name: mount etme islemi  
+  shell: exportfs -r
+  shell: mount -a
+
+  
+   

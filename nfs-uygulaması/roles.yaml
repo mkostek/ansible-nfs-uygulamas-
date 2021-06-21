@@ -1,0 +1,15 @@
+---  
+- hosts: server
+  become: true
+  remote_user: nadmin
+  roles:
+     - role: nss
+  tags: fsv
+  
+- hosts: client
+  become: true
+  remote_user: nadmin
+  roles:
+     - role: nsc
+  tags: fsc
+  

@@ -1,0 +1,8 @@
+---
+- name: nfs install
+  yum: 
+    name={{ item }} state=installed
+    with_items:
+      - nfs-utils
+- name: CentOS7 system start
+  shell: systemctl start nfs;systemctl enable nfs 

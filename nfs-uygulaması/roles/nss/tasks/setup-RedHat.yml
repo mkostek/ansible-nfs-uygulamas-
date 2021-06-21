@@ -1,0 +1,17 @@
+- name: nfs install
+  yum: name={{ item }} state=installed
+  with_items:
+  - nfs-utils
+  - rpcbind
+- name: CentOS7 system start
+  shell: systemctl start nfs-utils.service rpcbind;systemctl enable nfs-utils.service rpcbind;systemctl stop firewalld
+
+- name: Transfer the script
+  copy: src=server.sh dest=/home/nadmin mode=0777
+
+- name: Execute the script
+  command: sh /home/nadmin/server.sh
+  
+- name: mount ediliyor
+  shell: showmount -e
+     
